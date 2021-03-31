@@ -29,12 +29,23 @@
   }
 }
 
+@keyframes form__field-animation {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    width: calc(100% - 21rem)
+  }
+}
+
 .form__field {
   flex: none;
   margin-right: 3rem;
   padding: 0 5.6rem;
   height: 6rem;
-  width: calc(100% - 21rem);
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -43,6 +54,8 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  margin-left: auto;
+  animation: form__field-animation 0.3s ease-out forwards;
 
   &:focus {
     border: 1px solid $c-purple;
@@ -79,7 +92,6 @@
 }
 
 .form__button {
-  flex-grow: 1;
 
   @media (orientation: portrait) {
     position: relative;
