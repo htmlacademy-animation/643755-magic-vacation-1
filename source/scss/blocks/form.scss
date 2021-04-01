@@ -29,16 +29,11 @@
   }
 }
 
-@keyframes form__field-animation {
-  0% {
-    opacity: 0;
-    width: 0;
-  }
 
-  100% {
-    opacity: 1;
-    width: calc(100% - 21rem)
-  }
+.active .form__field {
+  opacity: 1;
+  width: calc(100% - 21rem);
+
 }
 
 .form__field {
@@ -55,7 +50,7 @@
   border-radius: 3rem;
   outline: none;
   margin-left: auto;
-  animation: form__field-animation 0.3s ease-out forwards;
+  transition: opacity 0.3s ease-out, width 0.3s ease-out;
 
   &:focus {
     border: 1px solid $c-purple;
