@@ -251,7 +251,7 @@
       height: 2px;
       background-color: $c-light;
       opacity: 0;
-      left: 0;
+      right: 0;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -282,6 +282,8 @@
         opacity: 1;
         background-color: $c-purple;
         width: 100%;
+        right: auto;
+        left: 0;
       }
     }
   }
