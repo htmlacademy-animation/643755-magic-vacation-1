@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .form__label {
@@ -29,11 +30,13 @@
   }
 }
 
-
 .active .form__field {
   opacity: 1;
   width: calc(100% - 21rem);
 
+  @media (min-width: $stop-scaling) {
+    width: calc(100% - 210px);
+  }
 }
 
 .form__field {
@@ -50,6 +53,8 @@
   border-radius: 3rem;
   outline: none;
   margin-left: auto;
+  opacity: 0;
+  width: 0;
   transition: opacity 0.3s ease-out, width 0.3s ease-out;
 
   &:focus {
@@ -60,7 +65,6 @@
     margin-right: 30px;
     padding: 0 56px;
     height: 60px;
-    width: calc(100% - 210px);
     font-size: 24px;
     border-radius: 30px;
   }
