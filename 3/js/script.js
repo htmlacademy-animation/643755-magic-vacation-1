@@ -10287,6 +10287,8 @@ class FullPageScroll {
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+
+    this.screens = [];
   }
 
   init() {
@@ -10319,23 +10321,26 @@ class FullPageScroll {
   changeVisibilityDisplay() {
     const isPrizes = this.screenElements[this.activeScreen].id === `prizes`;
 
+    this.screens.unshift(this.screenElements[this.activeScreen].id);
+    this.screens.length = 2;
+
     this.screenElements.forEach((screen) => {
 
-      if (isPrizes) {
+      if (isPrizes && this.screens[1] === `story`) {
         setTimeout(() => {
           screen.classList.add(`screen--hidden`);
           screen.classList.remove(`active`);
-        }, 500);
+        }, 400);
       } else {
         screen.classList.add(`screen--hidden`);
         screen.classList.remove(`active`);
       }
     });
 
-    if (isPrizes) {
+    if (isPrizes && this.screens[1] === `story`) {
       setTimeout(() => {
         this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-      }, 500);
+      }, 400);
     } else {
       this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     }
