@@ -1,5 +1,7 @@
 import throttle from 'lodash/throttle';
 
+import animationController from "./animation-controller";
+
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
@@ -70,6 +72,12 @@ export default class FullPageScroll {
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
     }, 100);
+
+    if (this.screenElements[this.activeScreen].id !== this.screens[1]) {
+      animationController(this.screenElements[this.activeScreen].id);
+    }
+
+
   }
 
   changeActiveMenuItem() {
