@@ -456,7 +456,7 @@
     animation-delay: 0.3s;
     animation-duration: 1.3s;
     animation-fill-mode: forwards;
-    //animation-timing-function: easeOutBounce;
+    animation-timing-function: ease-out;
 
     //@media (max-width: $tablet) and (orientation: portrait) {
     //  left: calc(50% + 3rem);
