@@ -20,7 +20,7 @@ const animationController = (screenId) => {
     case `top`:
       setTimeout(() => {
         animationIntroTitle.runAnimation();
-      }, 4000);
+      }, 10);
 
       setTimeout(() => {
         animationIntroDate.runAnimation();

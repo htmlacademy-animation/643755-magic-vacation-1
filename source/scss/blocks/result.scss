@@ -58,7 +58,6 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 1px solid red;
 }
 
 @keyframes scale-and-opacity-animation {
@@ -297,19 +296,216 @@
   }
 }
 
-#result2 .suitcase {
-  position: absolute;
-  top: 364px;
-  left: 327px;
-  width: 450px;
-  height: 450px;
+@keyframes suitcase-move-up-and-scale {
+
+  to {
+    transform: translate(-50%, 70%) scale(0.9);
+  }
+}
+
+@keyframes flamingo-move-up-and-scale {
+  to {
+    transform: translate(-50%, 110%) scale(0.8) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flamingo-up-down-and-rotate {
+  25% {
+    transform: translate(-50%, 115%) scale(0.8) rotate(10deg);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-50%, 110%) scale(0.8) rotate(0deg);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translate(-50%, 115%) scale(0.8) rotate(10deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, 110%) scale(0.8) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes leaf-blue-move {
+  25% {
+    transform: translateX(-50%) rotate(15deg);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(6deg);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(10deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(6deg);
+    opacity: 1;
+  }
+}
+
+@keyframes leaf-blue-move2 {
+  25% {
+    transform: translateX(-50%) rotate(22deg);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(0deg);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(15deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes leaf-green-move {
+  25% {
+    transform: translateX(-50%) rotate(20deg);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(6deg);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(15deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(6deg);
+    opacity: 1;
+  }
 }
 
 
-#result2 .flamingo {
-  position: absolute;
-  top: 470px;
-  left: 295px;
-  width: 330px;
-  height: 330px;
+.result__image-inner {
+
+  & .suitcase {
+    position: absolute;
+    transform: translate(-50%, 150%) scale(0.1);
+    left: calc(50% - 3.5rem);
+    width: 650px;
+    height: 580px;
+
+    animation-name: suitcase-move-up-and-scale;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.17,.67,.7,1.29);
+  }
+
+  & .flamingo {
+    position: absolute;
+    transform: translate(-50%, 210%) scale(0.1);
+    width: 450px;
+    height: 450px;
+    opacity: 0;
+    left: calc(50% - 13rem);
+    transform-origin: 50% 85%;
+
+    animation-name: flamingo-move-up-and-scale, flamingo-up-down-and-rotate;
+    animation-duration: 0.6s, 3s;
+    animation-fill-mode: forwards, forwards;
+    animation-timing-function: cubic-bezier(.17,.67,.7,1.29), ease-out;
+    animation-delay: 0s, 0.6s;
+    animation-iteration-count: 1, 1;
+
+
+    //@media (max-width: $tablet) and (orientation: portrait) {
+    //  left: calc(50% - 6rem);
+    //}
+  }
+
+  & .leaf-blue1 {
+    position: absolute;
+    top: 33vh;
+    left: calc(50% + 22.5rem);
+    transform: translateX(-50%) rotate(5deg);
+    transform-origin: 0 120%;
+    width: 484px;
+    height: 457px;
+    opacity: 0;
+
+    animation-name: leaf-blue-move;
+    animation-delay: 0.3s;
+    animation-duration: 1.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.17,.67,.7,1.29);
+
+    //@media (max-width: $tablet) and (orientation: portrait) {
+    //  left: calc(50% + 3rem);
+    //  top: 53vh;
+    //  width: 384px;
+    //  height: 357px;
+    //}
+  }
+
+  & .leaf-blue2 {
+    position: absolute;
+    top: 52vh;
+    left: calc(50% - 26.5rem);
+    transform-origin: 120% 0;
+    transform: translateX(-50%) rotate(5deg);
+    width: 350px;
+    height: 300px;
+    opacity: 0;
+
+    animation-name: leaf-blue-move2;
+    animation-delay: 0.3s;
+    animation-duration: 1.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.17,.67,.7,1.29);
+
+
+    //@media (max-width: $tablet) and (orientation: portrait) {
+    //  left: calc(50% - 14rem);
+    //  width: 250px;
+    //  height: 200px;
+    //  top: 65vh;
+    //}
+  }
+
+  & .leaf-green {
+    position: absolute;
+    top: 56vh;
+    left: calc(50% + 16.5rem);
+    transform: translateX(-50%) rotate(5deg);
+    transform-origin: 0 120%;
+    width: 539px;
+    height: 250px;
+
+    animation-name: leaf-blue-move;
+    animation-delay: 0.3s;
+    animation-duration: 1.6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.17,.67,.7,1.29);
+
+
+    //@media (max-width: $tablet) and (orientation: portrait) {
+    //  width: 439px;
+    //  height: 150px;
+    //  top: 65vh;
+    //  left: calc(50% + 6.5rem);
+    //}
+  }
 }
