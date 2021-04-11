@@ -332,26 +332,32 @@
   }
 }
 
-@keyframes leaf-blue-move {
-  25% {
-    transform: translateX(-50%) rotate(15deg);
+@keyframes leaf-blue-move1 {
+  0% {
+    transform: translateX(-50%) rotate(-45deg);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translateX(-50%) rotate(7deg);
     opacity: 1;
   }
 
   50% {
-    transform: translateX(-50%) rotate(6deg);
+    transform: translateX(-50%) rotate(-10deg);
     opacity: 1;
   }
 
-  75% {
-    transform: translateX(-50%) rotate(10deg);
+  65% {
+    transform: translateX(-50%) rotate(3deg);
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-50%) rotate(6deg);
+    transform: translateX(-50%) rotate(0);
     opacity: 1;
   }
+
 }
 
 @keyframes leaf-blue-move2 {
@@ -411,7 +417,7 @@
     animation-name: suitcase-move-up-and-scale;
     animation-duration: 0.6s;
     animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(.17,.67,.7,1.29);
+    animation-timing-function: cubic-bezier(.37,.2,.06,1.5);
   }
 
   & .flamingo {
@@ -440,17 +446,17 @@
     position: absolute;
     top: 33vh;
     left: calc(50% + 22.5rem);
-    transform: translateX(-50%) rotate(5deg);
+    transform: translateX(-50%) rotate(0deg);
     transform-origin: 0 120%;
     width: 484px;
     height: 457px;
     opacity: 0;
 
-    animation-name: leaf-blue-move;
+    animation-name: leaf-blue-move1;
     animation-delay: 0.3s;
     animation-duration: 1.3s;
     animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(.17,.67,.7,1.29);
+    //animation-timing-function: easeOutBounce;
 
     //@media (max-width: $tablet) and (orientation: portrait) {
     //  left: calc(50% + 3rem);
@@ -494,7 +500,7 @@
     width: 539px;
     height: 250px;
 
-    animation-name: leaf-blue-move;
+    animation-name: leaf-green-move;
     animation-delay: 0.3s;
     animation-duration: 1.6s;
     animation-fill-mode: forwards;
