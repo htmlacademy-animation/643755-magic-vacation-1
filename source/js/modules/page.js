@@ -2,34 +2,50 @@ import AccentTypographyBuild from "./text";
 
 export default () => {
 
-  const animationIntroTitle = new AccentTypographyBuild(`.intro__title`, 500, `animate`, `transform`);
-  const animationIntroDate = new AccentTypographyBuild(`.intro__date`, 500, `animate`, `transform`);
-  const animationHistory = new AccentTypographyBuild(`.slider__item-title--history`, 500, `animate`, `transform`);
-  const prizesTitle = new AccentTypographyBuild(`.prizes__title`, 500, `animate`, `transform`);
-  const rulesTitle = new AccentTypographyBuild(`.rules__title`, 500, `animate`, `transform`);
-  const gameTitle = new AccentTypographyBuild(`.game__title`, 500, `animate`, `transform`);
-
-  animationIntroTitle.destroyAnimation();
-  animationIntroDate.destroyAnimation();
-  animationHistory.destroyAnimation();
-  prizesTitle.destroyAnimation();
-  rulesTitle.destroyAnimation();
-  gameTitle.destroyAnimation();
-
-  animationIntroTitle.runAnimation();
-  animationIntroDate.runAnimation();
-  animationHistory.runAnimation();
-  prizesTitle.runAnimation();
-  rulesTitle.runAnimation();
-  gameTitle.runAnimation();
-
-
-  const body = document.querySelector(`body`);
   window.addEventListener(`load`, () => {
+    const body = document.querySelector(`body`);
     body.classList.add(`loaded`);
 
-    body.addEventListener(`screenChanged`, (event) => {
+    const animationIntroTitle = new AccentTypographyBuild(`.intro__title`, 500, `animate`, `transform`);
+    const animationIntroDate = new AccentTypographyBuild(`.intro__date`, 500, `animate`, `transform`);
+    const animationHistory = new AccentTypographyBuild(`.slider__item-title--history`, 500, `animate`, `transform`);
+    const prizesTitle = new AccentTypographyBuild(`.prizes__title`, 500, `animate`, `transform`);
+    const rulesTitle = new AccentTypographyBuild(`.rules__title`, 500, `animate`, `transform`);
+    const gameTitle = new AccentTypographyBuild(`.game__title`, 500, `animate`, `transform`);
+    // запуск анимации при первоначальной загрузки любой страницы
+    animationIntroTitle.destroyAnimation();
+    animationIntroDate.destroyAnimation();
+    animationHistory.destroyAnimation();
+    prizesTitle.destroyAnimation();
+    rulesTitle.destroyAnimation();
+    gameTitle.destroyAnimation();
 
+    setTimeout(() => {
+      animationIntroTitle.runAnimation();
+    }, 10);
+    setTimeout(() => {
+      animationIntroDate.runAnimation();
+    }, 200);
+
+    setTimeout(() => {
+      animationHistory.runAnimation();
+    }, 10);
+
+    setTimeout(() => {
+      prizesTitle.runAnimation();
+    }, 10);
+
+    setTimeout(() => {
+      rulesTitle.runAnimation();
+    }, 10);
+
+    setTimeout(()=>{
+      gameTitle.runAnimation();
+    }, 10);
+
+
+    body.addEventListener(`screenChanged`, (event) => {
+      // запуск анимации при смене экранов
       animationIntroTitle.destroyAnimation();
       animationIntroDate.destroyAnimation();
       animationHistory.destroyAnimation();
@@ -72,13 +88,6 @@ export default () => {
             gameTitle.runAnimation();
           }, 10);
       }
-
-
     });
-
-
-
   });
-
-
 };
