@@ -297,7 +297,6 @@
 }
 
 @keyframes suitcase-move-up-and-scale {
-
   to {
     transform: translate(-50%, 70%) scale(0.9);
   }
@@ -311,7 +310,6 @@
 }
 
 @keyframes flamingo-up-down-and-rotate {
-
   25% {
     transform: translate(-50%, 112%) scale(0.8) rotate(3deg);
     opacity: 1;
@@ -334,45 +332,55 @@
 }
 
 @keyframes leaf-blue-move1 {
-  20% {
-    transform: translateX(-50%) rotate(-5deg);
-    opacity: 0.5;
-  }
-
-  40% {
-    transform: translateX(-50%) rotate(4deg);
+  10% {
+    transform: translateX(-50%) rotate(5deg);
     opacity: 1;
   }
 
-  50% {
-    transform: translateX(-50%) rotate(-1deg);
+  30% {
+    transform: translateX(-50%) rotate(-8deg);
+    opacity: 1;
+  }
+
+  55% {
+    transform: translateX(-50%) rotate(5deg);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateX(-50%) rotate(-3deg);
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-50%) rotate(3deg);
+    transform: translateX(-50%) rotate(4deg);
     opacity: 1;
   }
 }
 
 @keyframes leaf-blue-move2 {
-  25% {
-    transform: translateX(-50%) rotate(17deg);
-    opacity: 0.5;
-  }
-
-  50% {
-    transform: translateX(-50%) rotate(12deg);
+  10% {
+    transform: translateX(-50%) rotate(20deg);
     opacity: 1;
   }
 
-  75% {
-    transform: translateX(-50%) rotate(15deg);
+  30% {
+    transform: translateX(-50%) rotate(10deg);
+    opacity: 1;
+  }
+
+  55% {
+    transform: translateX(-50%) rotate(20deg);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateX(-50%) rotate(13deg);
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-50%) rotate(11deg);
+    transform: translateX(-50%) rotate(7deg);
     opacity: 1;
   }
 }
@@ -436,24 +444,23 @@
     position: absolute;
     top: 33vh;
     left: calc(50% + 22.5rem);
-    transform: translateX(-50%) rotate(0deg);
-    transform-origin: 0 120%;
+    transform: translateX(-50%) rotate(-10deg);
     width: 484px;
     height: 457px;
     opacity: 0;
-
+    transform-origin: left center;
     animation-name: leaf-blue-move1;
-    animation-delay: 0.7s;
-    animation-duration: 1.1s;
+    animation-delay: 0.65s;
+    animation-duration: 0.9s;
     animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(0,.3,0,.71);
+    animation-timing-function: ease-out;
   }
 
   & .leaf-blue2 {
     position: absolute;
     top: 54vh;
     left: calc(50% - 21.5rem);
-    transform-origin: 120% 0;
+    transform-origin: right center;
     transform: translateX(-50%) rotate(12deg);
     width: 450px;
     height: 400px;
@@ -461,9 +468,9 @@
 
     animation-name: leaf-blue-move2;
     animation-delay: 0.7s;
-    animation-duration: 1.1s;
+    animation-duration: 0.9s;
     animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(0,.3,0,.71);
+    animation-timing-function: ease-out;
   }
 
   & .leaf-green {
@@ -477,7 +484,7 @@
     opacity: 0;
     animation-name: leaf-green-move;
     animation-delay: 0.75s;
-    animation-duration: 1.2s;
+    animation-duration: 1.3s;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(0,.3,0,.71);
   }
