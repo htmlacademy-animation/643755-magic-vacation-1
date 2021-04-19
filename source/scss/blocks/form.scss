@@ -39,6 +39,7 @@
   }
 }
 
+
 .form__field {
   flex: none;
   margin-right: 3rem;
@@ -90,7 +91,24 @@
   }
 }
 
+@keyframes form__button-animation {
+  to {
+    opacity: 1;
+  }
+}
+
 .form__button {
+  opacity: 1;
+
+  & span {
+    opacity: 0;
+    animation-name: form__button-animation;
+    animation-delay: 0.3s;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
 
   @media (orientation: portrait) {
     position: relative;
@@ -138,7 +156,13 @@
 
 .form--result {
   .form__field {
-    width: calc(100% - 31rem);
+    opacity: 0;
+    width: 6rem;
+    padding: 0;
+
+    &::placeholder {
+      opacity: 0;
+    }
 
     @media (min-width: $stop-scaling) {
       width: calc(100% - 310px);
@@ -155,5 +179,15 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
     }
+  }
+}
+
+.active.form--result .form__field {
+  opacity: 1;
+  width: calc(100% - 31rem);
+  padding: 0 5.6rem;
+
+  &::placeholder {
+    opacity: 1;
   }
 }
