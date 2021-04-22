@@ -89,11 +89,11 @@ export default () => {
     body.classList.remove(`theme2`);
     body.classList.remove(`theme3`);
 
-    if (slideNum === 2) { // второй слайд
+    if (slideNum === 0) { // первый слайд
       body.classList.add(`theme1`);
-    } else if (slideNum === 4) { // третий слайд
+    } else if (slideNum === 2) { // второй слайд
       body.classList.add(`theme2`);
-    } else if (slideNum === 6) { // четвёртый слайд
+    } else if (slideNum === 4) { // третий слайд
       body.classList.add(`theme3`);
     }
   };

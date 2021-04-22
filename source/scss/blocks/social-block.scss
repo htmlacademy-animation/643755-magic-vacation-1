@@ -90,6 +90,69 @@
   }
 }
 
+.theme1 .social-block__toggler {
+  background-color: #ffffff;
+  color: #a67ee5;
+  &:hover {
+    color: #5F458C;
+  }
+
+  &:focus {
+    color: #5F458C;
+    &::before {
+      border-color: #5F458C;
+    }
+  }
+
+  &:active {
+    color: #ffffff;
+    background-color: #5F458C;
+    border-color: #5F458C;
+  }
+}
+
+.theme2 .social-block__toggler {
+  background-color: #ffffff;
+  color: #3F72EE;
+  &:hover {
+    color: #a0ceff;
+  }
+
+  &:focus {
+    color: #a0ceff;
+    &::before {
+      border-color: #a0ceff;
+    }
+  }
+
+  &:active {
+    color: #ffffff;
+    background-color: #a0ceff;
+    border-color: #a0ceff;
+  }
+}
+
+.theme3 .social-block__toggler {
+  background-color: #ffffff;
+  color: #a7d4ff;
+  &:hover {
+    color: #3F72EE;
+  }
+
+  &:focus {
+    color: #3F72EE;
+    &::before {
+      border-color: #3F72EE;
+    }
+  }
+
+  &:active {
+    color: #ffffff;
+    background-color: #3F72EE;
+    border-color: #3F72EE;
+  }
+}
+
 .social-block__list {
   @include list-reset;
 
