@@ -42,10 +42,47 @@
   right: 0;
   z-index: 1;
 }
-
-.loaded .screen__footer {
+// появление ссылки
+.loaded .screen--intro .screen__footer {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes screen__footer-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes screen__footer-opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.screen--prizes .screen__footer {
+  animation-name: screen__footer-slide-up;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.18,.93,.31,.84);
+}
+
+.screen--rules .disclaimer li {
+  opacity: 0;
+  animation-name: screen__footer-opacity;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.18,.93,.31,.84);
 }
 
 .screen__footer {
@@ -60,6 +97,7 @@
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.3s ease-out, transform 0.3s cubic-bezier(.18,.93,.31,.84);
+
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
