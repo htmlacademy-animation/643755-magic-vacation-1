@@ -130,6 +130,26 @@
   }
 }
 
+@keyframes result__button-change-opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes result__button-span-roll {
+  0% {
+    transform: translateX(100px) rotate(150deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
 .result__button {
   @include btn-reset;
   display: flex;
@@ -142,6 +162,11 @@
   font-size: 2.4rem;
   line-height: 1.2;
   color: $c-light;
+
+  animation-name: result__button-change-opacity;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.27,1.21,.84,.94);
 
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
@@ -174,6 +199,12 @@
     width: 4rem;
     height: 4rem;
     color: $c-dark;
+    transform-origin: center center;
+
+    animation-name: result__button-span-roll;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(.27,1.21,.84,.94);
+    animation-fill-mode: forwards;
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;
