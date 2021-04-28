@@ -291,3 +291,45 @@
     }
   }
 }
+
+@keyframes pagination-next {
+  0% {
+    opacity: 0;
+    transform: translateX(120px) rotate(100deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes pagination-prev {
+  0% {
+    opacity: 0;
+    transform: translateX(-120px) rotate(-100deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.screen.screen--story.active .slider__control--next {
+  animation-name: pagination-next;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.27,1.21,.84,.94);
+  transform-origin: center center;
+  opacity: 0;
+}
+
+.screen.screen--story.active .slider__control--prev {
+  animation-name: pagination-prev ;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.27,1.21,.84,.94);
+  transform-origin: center center;
+  opacity: 0;
+}

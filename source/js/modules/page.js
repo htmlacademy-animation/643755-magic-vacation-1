@@ -5,6 +5,7 @@ export default () => {
   window.addEventListener(`load`, () => {
     const body = document.querySelector(`body`);
     body.classList.add(`loaded`);
+    body.classList.add(`theme1`);
 
     const animationIntroTitle = new AccentTypographyBuild(`.intro__title`, 500, `animate`, `transform`);
     const animationIntroDate = new AccentTypographyBuild(`.intro__date`, 500, `animate`, `transform`);
@@ -89,5 +90,8 @@ export default () => {
           }, 10);
       }
     });
+
+
+
   });
 };

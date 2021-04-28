@@ -130,6 +130,26 @@
   }
 }
 
+@keyframes result__button-change-opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes result__button-span-roll {
+  0% {
+    transform: translateX(100px) rotate(150deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
 .result__button {
   @include btn-reset;
   display: flex;
@@ -142,6 +162,11 @@
   font-size: 2.4rem;
   line-height: 1.2;
   color: $c-light;
+
+  animation-name: result__button-change-opacity;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.27,1.21,.84,.94);
 
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
@@ -174,6 +199,12 @@
     width: 4rem;
     height: 4rem;
     color: $c-dark;
+    transform-origin: center center;
+
+    animation-name: result__button-span-roll;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(.27,1.21,.84,.94);
+    animation-fill-mode: forwards;
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;
@@ -297,125 +328,162 @@
 }
 
 @keyframes suitcase-move-up-and-scale {
+  0% {
+    transform: translate(-50%, 150%) scale(0.1);
+    opacity: 0;
+  }
+
   to {
-    transform: translate(-50%, 70%) scale(0.9);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
 }
 
 @keyframes flamingo-move-up-and-scale {
+  0% {
+    transform: translate(-50%, 150%) scale(0.1);
+    opacity: 0;
+  }
+
   to {
-    transform: translate(-50%, 110%) scale(0.8) rotate(0);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
 }
 
 @keyframes flamingo-up-down-and-rotate {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
   25% {
-    transform: translate(-50%, 112%) scale(0.8) rotate(3deg);
+    transform:  translate(-50%, -52%) scale(1) rotate(3deg);
     opacity: 1;
   }
 
   50% {
-    transform: translate(-50%, 110%) scale(0.8) rotate(0deg);
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
     opacity: 1;
   }
 
   75% {
-    transform: translate(-50%, 112%) scale(0.8) rotate(3deg);
+    transform: translate(-50%, -52%) scale(1) rotate(3deg);
     opacity: 1;
   }
 
   100% {
-    transform: translate(-50%, 110%) scale(0.8) rotate(0);
+    transform: translate(-50%, -50%) scale(1) rotate(0);
     opacity: 1;
   }
 }
 
 @keyframes leaf-blue-move1 {
+
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0;
+  }
+
   10% {
-    transform: translateX(-50%) rotate(5deg);
+    transform: translate(-50%, -50%) rotate(10deg);
     opacity: 1;
   }
 
   30% {
-    transform: translateX(-50%) rotate(-8deg);
+    transform: translate(-50%, -50%) rotate(-8deg);
     opacity: 1;
   }
 
   55% {
-    transform: translateX(-50%) rotate(5deg);
+    transform: translate(-50%, -50%) rotate(5deg);
     opacity: 1;
   }
 
   70% {
-    transform: translateX(-50%) rotate(-3deg);
+    transform: translate(-50%, -50%) rotate(-3deg);
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-50%) rotate(4deg);
+    transform: translate(-50%, -50%) rotate(4deg);
     opacity: 1;
   }
 }
 
 @keyframes leaf-blue-move2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0;
+  }
+
   10% {
-    transform: translateX(-50%) rotate(20deg);
+    transform: translate(-50%, -50%) rotate(30deg);
     opacity: 1;
   }
 
   30% {
-    transform: translateX(-50%) rotate(10deg);
+    transform: translate(-50%, -50%) rotate(-5deg);
     opacity: 1;
   }
 
   55% {
-    transform: translateX(-50%) rotate(20deg);
+    transform: translate(-50%, -50%) rotate(5deg);
     opacity: 1;
   }
 
   70% {
-    transform: translateX(-50%) rotate(13deg);
+    transform: translate(-50%, -50%) rotate(-2deg);
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-50%) rotate(7deg);
+    transform: translate(-50%, -50%) rotate(3deg);
     opacity: 1;
   }
 }
 
 @keyframes leaf-green-move {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0;
+  }
+
   25% {
-    transform: translateX(-50%) rotate(10deg);
+    transform: translate(-50%, -50%) rotate(10deg);
     opacity: 1;
   }
 
   50% {
-    transform: translateX(-50%) rotate(6deg);
+    transform: translate(-50%, -50%) rotate(6deg);
     opacity: 1;
   }
 
   75% {
-    transform: translateX(-50%) rotate(8deg);
+    transform: translate(-50%, -50%) rotate(8deg);
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-50%) rotate(4deg);
+    transform: translate(-50%, -50%) rotate(4deg);
     opacity: 1;
   }
 }
 
 
 .result__image-inner {
+  position: relative;
+  max-width: 1000px;
+  max-height: 1000px;
 
   & .suitcase {
     position: absolute;
-    transform: translate(-50%, 150%) scale(0.1);
-    left: calc(50% - 3.5rem);
     width: 650px;
     height: 580px;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
 
     animation-name: suitcase-move-up-and-scale;
     animation-duration: 0.7s;
@@ -425,66 +493,69 @@
 
   & .flamingo {
     position: absolute;
-    transform: translate(-50%, 210%) scale(0.1);
     width: 450px;
     height: 450px;
     opacity: 0;
-    left: calc(50% - 13rem);
     transform-origin: 50% 85%;
+    top: 71%;
+    left: 40%;
+    transform: translate(-50%, -50%) scale(0.1);
 
     animation-name: flamingo-move-up-and-scale, flamingo-up-down-and-rotate;
     animation-duration: 0.7s, 5s;
     animation-fill-mode: forwards, forwards;
-    animation-timing-function: linear, linear;
-    animation-delay: 0s, 0.6s;
+    animation-timing-function: cubic-bezier(.37,.2,.06,1.5), linear;
+    animation-delay: 0.05s, 0.75s;
     animation-iteration-count: 1, infinite;
   }
 
   & .leaf-blue1 {
     position: absolute;
-    top: 33vh;
-    left: calc(50% + 22.5rem);
-    transform: translateX(-50%) rotate(-10deg);
     width: 484px;
     height: 457px;
     opacity: 0;
+    top: 51%;
+    left: 82%;
+    transform: translate(-50%, -50%) rotate(0);
+
     transform-origin: left center;
     animation-name: leaf-blue-move1;
-    animation-delay: 0.65s;
-    animation-duration: 0.9s;
+    animation-delay: 0.7s;
+    animation-duration: 0.7s;
     animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
+    animation-timing-function: cubic-bezier(.37,.2,.06,1.5);
   }
 
   & .leaf-blue2 {
     position: absolute;
-    top: 54vh;
-    left: calc(50% - 21.5rem);
-    transform-origin: right center;
-    transform: translateX(-50%) rotate(12deg);
     width: 450px;
     height: 400px;
     opacity: 0;
+    top: 72%;
+    left: 21%;
+    transform: translate(-50%, -50%) rotate(0);
+    transform-origin: right center;
 
     animation-name: leaf-blue-move2;
-    animation-delay: 0.7s;
-    animation-duration: 0.9s;
+    animation-delay: 0.65s;
+    animation-duration: 0.7s;
     animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
+    animation-timing-function: cubic-bezier(.37,.2,.06,1.5);
   }
 
   & .leaf-green {
     position: absolute;
-    top: 54vh;
-    left: calc(50% + 16.5rem);
-    transform: translateX(-50%) rotate(6deg);
-    transform-origin: 0 120%;
     width: 539px;
     height: 250px;
     opacity: 0;
+    top: 70%;
+    left: 83%;
+    transform: translate(-50%, -50%) rotate(0);
+    transform-origin: left 70%;
+
     animation-name: leaf-green-move;
-    animation-delay: 0.75s;
-    animation-duration: 1.3s;
+    animation-delay: 0.7s;
+    animation-duration: 0.75s;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(0,.3,0,.71);
   }

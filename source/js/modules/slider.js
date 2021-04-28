@@ -17,6 +17,7 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            slideChanged(storySlider.activeIndex);
             if (storySlider.activeIndex === 0 || storySlider.activeIndex === 1) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
             } else if (storySlider.activeIndex === 2 || storySlider.activeIndex === 3) {
@@ -51,6 +52,7 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            slideChanged(storySlider.activeIndex);
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
             } else if (storySlider.activeIndex === 2) {
@@ -79,4 +81,20 @@ export default () => {
   });
 
   setSlider();
+
+  const body = document.querySelector(`body`);
+
+  const slideChanged = (slideNum) => {
+    body.classList.remove(`theme1`);
+    body.classList.remove(`theme2`);
+    body.classList.remove(`theme3`);
+
+    if (slideNum === 0) { // первый слайд
+      body.classList.add(`theme1`);
+    } else if (slideNum === 2) { // второй слайд
+      body.classList.add(`theme2`);
+    } else if (slideNum === 4) { // третий слайд
+      body.classList.add(`theme3`);
+    }
+  };
 };

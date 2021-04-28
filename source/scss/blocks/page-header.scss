@@ -306,6 +306,36 @@
   }
 }
 
+.theme1 .page-header__menu a {
+  &:hover, &:focus {
+    color: #7659AB;
+
+    &::after {
+      background-color: #7659AB;
+    }
+  }
+}
+
+.theme2 .page-header__menu a {
+  &:hover, &:focus {
+    color: #A0CEFF;
+
+    &::after {
+      background-color: #A0CEFF;
+    }
+  }
+}
+
+.theme3 .page-header__menu a {
+  &:hover, &:focus {
+    color: #3F72EE;
+
+    &::after {
+      background-color: #3F72EE;
+    }
+  }
+}
+
 .loaded .page-header__menu a.active::after {
   opacity: 1;
   width: 100%;
