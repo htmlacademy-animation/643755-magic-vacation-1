@@ -76,6 +76,9 @@ export default () => {
           setTimeout(() => {
             prizesTitle.runAnimation();
           }, 430);
+
+          const primaryPrizeEl = document.querySelector(`.prizes__icon img`);
+          primaryPrizeEl.src = `img/module-3/img/primary-award.svg`;
           break;
 
         case `rules`:
