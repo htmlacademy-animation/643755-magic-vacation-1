@@ -77,8 +77,8 @@ export default () => {
             prizesTitle.runAnimation();
           }, 430);
 
+          // запускаем анимацию для свг файлов каждый раз при переходе на экран призы
           const imgEls = document.querySelectorAll(`.prizes__icon img`);
-
           imgEls.forEach(function (imgEl) {
             imgEl.src = imgEl.src + `?` + String(Math.floor((Math.random() * 100) + 1));
           });
