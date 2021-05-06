@@ -77,8 +77,12 @@ export default () => {
             prizesTitle.runAnimation();
           }, 430);
 
-          const primaryPrizeEl = document.querySelector(`.prizes__icon img`);
-          primaryPrizeEl.src = `img/module-3/img/primary-award.svg`;
+          const imgEls = document.querySelectorAll(`.prizes__icon img`);
+
+          imgEls.forEach(function (imgEl) {
+            imgEl.src = imgEl.src + `?` + String(Math.floor((Math.random() * 100) + 1));
+          });
+
           break;
 
         case `rules`:
