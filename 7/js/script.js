@@ -10533,8 +10533,12 @@ __webpack_require__.r(__webpack_exports__);
             prizesTitle.runAnimation();
           }, 430);
 
-          const primaryPrizeEl = document.querySelector(`.prizes__icon img`);
-          primaryPrizeEl.src = `img/module-3/img/primary-award.svg`;
+          // запускаем анимацию для свг файлов каждый раз при переходе на экран призы
+          const imgEls = document.querySelectorAll(`.prizes__icon img`);
+          imgEls.forEach(function (imgEl) {
+            imgEl.src = imgEl.src + `?` + String(Math.floor((Math.random() * 100) + 1));
+          });
+
           break;
 
         case `rules`:
