@@ -401,8 +401,8 @@
       <animateTransform
         attributeName="transform"
         type="rotate"
-        values="0 111 335; 3 111 335; 0 111 335;"
-        keyTimes="0; 0.5; 1"
+        values="0 111 335; 4 111 335; 2 111 335; 0 111 335;"
+        keyTimes="0; 0.5; 0.7; 1"
         dur="0.4s"
         repeatCount="indefinite"
         additive="sum"
