@@ -180,7 +180,27 @@
       begin="-0.5s"
     />
   </g>
+
   <g id="ground">
-    <line x1="41.13" y1="329" x2="319.13" y2="329" fill="none" stroke="#fff" stroke-width="2"/>
+    <line x1="43" y1="329" x2="300" y2="329" fill="none" stroke="#fff" stroke-width="2">
+
+    <animate
+      attributeName="x2"
+      from="0"
+      to="300"
+      dur="0.2s"
+    />
+      <animate
+        attributeName="x1"
+        from="43"
+        to="160"
+        begin="0.1s"
+        dur="0.2s"
+        fill="freeze"
+      />
+
+    </line>
   </g>
+
+
 </svg>
