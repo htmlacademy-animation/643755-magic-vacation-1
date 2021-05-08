@@ -183,13 +183,12 @@
 
   <g id="ground">
     <line x1="43" y1="329" x2="300" y2="329" fill="none" stroke="#fff" stroke-width="2">
-
-    <animate
-      attributeName="x2"
-      from="0"
-      to="300"
-      dur="0.2s"
-    />
+      <animate
+        attributeName="x2"
+        from="0"
+        to="300"
+        dur="0.2s"
+      />
       <animate
         attributeName="x1"
         from="43"
@@ -198,7 +197,6 @@
         dur="0.2s"
         fill="freeze"
       />
-
     </line>
   </g>
 
