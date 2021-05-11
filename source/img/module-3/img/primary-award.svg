@@ -334,12 +334,20 @@
       <animateTransform
         attributeName="transform"
         type="rotate"
-        values="0 111 335; 3 111 335; 0 111 335;"
-        keyTimes="0; 0.5; 1"
-        dur="0.4s"
+        values="0 111 335; 3 111 335; 2 111 335; 2 111 335; 2 111 335; 2 111 335; 3 111 335; 0 111 335;"
+        keyTimes="0; 0.1; 0.5; 0.6; 0.7; 0.8; 0.9; 1"
+        dur="1.8s"
         repeatCount="indefinite"
         additive="sum"
         begin="2.3s"
+        keySplines=".42 0 1 1;
+                0 0 .59 1;
+                .42 0 1 1;
+                0 0 .59 1;
+                .35,.63,0,.96;
+                0 0 .59 1;
+                0 0 .59 1;"
+        calcMode="spline"
       />
 
     </g>
@@ -423,12 +431,20 @@
       <animateTransform
         attributeName="transform"
         type="rotate"
-        values="0 111 335; 4 111 335; 2 111 335; 0 111 335;"
-        keyTimes="0; 0.5; 0.7; 1"
-        dur="0.4s"
+        values="0 111 335; 4 111 335; 2 111 335; 2 111 335; 2 111 335; 2 111 335; 0 111 335;"
+        keyTimes="0; 0.4; 0.5; 0.6; 0.7; 0.8; 1"
+        dur="2.5s"
         repeatCount="indefinite"
         additive="sum"
         begin="2.4s"
+        keySplines=".42 0 1 1;
+                0 0 .59 1;
+                .42 0 1 1;
+                0 0 .59 1;
+                .35,.63,0,.96;
+                    0 0 .59 1;"
+        calcMode="spline"
+
       />
     </g>
 
