@@ -123,8 +123,8 @@
     <animateTransform
       attributeName="transform"
       type="scale"
-      values="0 0; 0.5, 0.5; 1, 1"
-      keyTimes="0; 0.7; 1"
+      values="0 0; 0.3, 0.3; 0.5, 0.5; 1, 1"
+      keyTimes="0; 0.6; 0.8; 1"
       dur="2s"
       fill="freeze"
       additive="sum"
@@ -134,12 +134,13 @@
     <animateTransform
       attributeName="transform"
       type="translate"
-      values="-50 -150; -210 -280"
+      values="-10 -180; -210 -300"
       keyTimes="0; 1"
       dur="2s"
       additive="sum"
       fill="freeze"
       begin="0.5s"
+      id="caseFlyAway"
     />
 
     <animateTransform
@@ -162,6 +163,19 @@
     >
       <mpath href="#trajectory"/>
     </animateMotion>
+
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="-210 -285; -210 -275"
+      keyTimes="0; 1"
+      dur="0.15s"
+
+      fill="freeze"
+      begin="caseFlyAway.end"
+    />
+
+
   </g>
 
 

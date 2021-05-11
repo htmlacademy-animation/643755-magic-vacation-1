@@ -64,7 +64,7 @@
       type="rotate"
       values="90 50 289; 80 50 289; 40 50 289; 10 50 289; 0 50 289;"
       keyTimes="0; 0.3; 0.6; 0.8; 1"
-      dur="1.03s"
+      dur="1.06s"
       repeatCount="1"
       additive="sum"
       begin="0.11s"
