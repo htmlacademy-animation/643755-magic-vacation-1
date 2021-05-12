@@ -123,7 +123,7 @@
     <animateTransform
       attributeName="transform"
       type="scale"
-      values="0 0; 0.3, 0.3; 0.5, 0.5; 1, 1"
+      values="0 0; 0.3, 0.3; 0.9, 0.9; 1, 1"
       keyTimes="0; 0.6; 0.8; 1"
       dur="2s"
       fill="freeze"
@@ -167,10 +167,9 @@
     <animateTransform
       attributeName="transform"
       type="translate"
-      values="-210 -285; -210 -275"
+      values="-210 -280; -211 -275"
       keyTimes="0; 1"
-      dur="0.15s"
-
+      dur="0.06s"
       fill="freeze"
       begin="caseFlyAway.end"
     />
@@ -187,8 +186,8 @@
     <animateTransform
       attributeName="transform"
       type="rotate"
-      values="0 230 330; 3 230 330; 2 230 330; 0 230 330;"
-      keyTimes="0; 0.5; 0.8 ;1"
+      values="0 230 330; 3 230 330; 2 230 330; 0 230 330; 0 230 330; 0 230 330; 0 230 330;"
+      keyTimes="0; 0.5; 0.7; 0.8; 0.9; 0.96; 1"
       dur="2s"
       repeatCount="indefinite"
       begin="-0.5s"
