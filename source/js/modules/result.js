@@ -4,6 +4,20 @@ export default () => {
   if (results.length) {
     for (let i = 0; i < showResultEls.length; i++) {
       showResultEls[i].addEventListener(`click`, function () {
+
+        // анимация слова Победа
+        // let imgEls = document.querySelectorAll(`.js-victory`);
+        // imgEls.forEach(function(imgEl) {
+        //   let pathEls = document.querySelectorAll(`.js-victory path`);
+        //   let paths = [];
+        //   pathEls.forEach(function (item) {
+        //     paths.push(item.getTotalLength());
+        //   });
+        //
+        //   imgEl.style.setProperty(`--path`, Math.max(...paths));
+        // });
+
+
         let target = showResultEls[i].getAttribute(`data-target`);
         [].slice.call(results).forEach(function (el) {
           el.classList.remove(`screen--show`);
