@@ -1,6 +1,12 @@
 import AccentTypographyBuild from "./text";
+import startTimer from "./timer";
 
 export default () => {
+  const runTimer = () => {
+    const fiveMinutes = 60 * 5;
+    const display = document.querySelector(`.game__counter`);
+    startTimer(fiveMinutes, display);
+  };
 
   window.addEventListener(`load`, () => {
     const body = document.querySelector(`body`);
@@ -44,6 +50,9 @@ export default () => {
       gameTitle.runAnimation();
     }, 10);
 
+    if (window.location.hash === `#game`) {
+      runTimer();
+    }
 
     body.addEventListener(`screenChanged`, (event) => {
       // запуск анимации при смене экранов
@@ -95,10 +104,9 @@ export default () => {
           setTimeout(()=>{
             gameTitle.runAnimation();
           }, 10);
+
+          runTimer();
       }
     });
-
-
-
   });
 };
