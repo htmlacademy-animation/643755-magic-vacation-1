@@ -19,7 +19,7 @@ export default () => {
     for (let i = 0; i < showResultEls.length; i++) {
       showResultEls[i].addEventListener(`click`, function () {
 
-        // анимация слова "Победа"
+        // анимация слова "Победа!"
         let pathEls = document.querySelectorAll(`.js-victory path`);
         pathEls.forEach(function (item) {
           item.appendChild(makeAnimateTag(item, item.getTotalLength()));
