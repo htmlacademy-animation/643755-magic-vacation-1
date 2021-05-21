@@ -1,5 +1,6 @@
 import AccentTypographyBuild from "./text";
 import startTimer from "./timer";
+import startCounter from "./counter";
 
 export default () => {
   const runTimer = () => {
@@ -54,6 +55,11 @@ export default () => {
       runTimer();
     }
 
+    if (window.location.hash === `#prizes`) {
+      startCounter();
+    }
+
+
     body.addEventListener(`screenChanged`, (event) => {
       // запуск анимации при смене экранов
       animationIntroTitle.destroyAnimation();
@@ -91,6 +97,9 @@ export default () => {
           imgEls.forEach(function (imgEl) {
             imgEl.src = imgEl.src + `?` + String(Math.floor((Math.random() * 100) + 1));
           });
+
+          // счётик призов
+          startCounter();
 
           break;
 
