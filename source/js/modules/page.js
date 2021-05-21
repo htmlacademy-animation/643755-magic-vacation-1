@@ -9,6 +9,14 @@ export default () => {
     startTimer(fiveMinutes, display);
   };
 
+  const runCounter = () => {
+    const casesEl = document.querySelector(`.prizes__item--cases b`);
+    startCounter(7, 1, 1, casesEl);
+
+    const codesEl = document.querySelector(`.prizes__item--codes b`);
+    startCounter(900, 11, 60, codesEl);
+  };
+
   window.addEventListener(`load`, () => {
     const body = document.querySelector(`body`);
     body.classList.add(`loaded`);
@@ -52,11 +60,13 @@ export default () => {
     }, 10);
 
     if (window.location.hash === `#game`) {
+      // таймер
       runTimer();
     }
 
     if (window.location.hash === `#prizes`) {
-      startCounter();
+      // счётик призов
+      runCounter();
     }
 
 
@@ -99,7 +109,7 @@ export default () => {
           });
 
           // счётик призов
-          startCounter();
+          runCounter();
 
           break;
 

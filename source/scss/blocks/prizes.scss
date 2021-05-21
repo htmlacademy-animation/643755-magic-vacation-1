@@ -188,6 +188,10 @@
         width: 7rem;
       }
     }
+
+    & b {
+      min-width: 7rem;
+    }
   }
 
   &--codes {
@@ -214,6 +218,10 @@
         width: 10rem;
       }
     }
+
+    & b {
+      min-width: 18rem;
+    }
   }
 }
 
@@ -235,6 +243,7 @@
   margin: 5.6rem 0 0 0;
   font-size: 1.8rem;
   line-height: 1.1;
+
 
   @media (min-width: $stop-scaling) {
     margin-top: 56px;
