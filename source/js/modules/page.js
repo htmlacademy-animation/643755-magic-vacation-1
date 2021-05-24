@@ -11,10 +11,10 @@ export default () => {
 
   const runCounter = () => {
     const casesEl = document.querySelector(`.prizes__item--cases b`);
-    startCounter(7, 1, 1, casesEl);
+    startCounter(7, 1, 1, casesEl, 12);
 
     const codesEl = document.querySelector(`.prizes__item--codes b`);
-    startCounter(900, 11, 60, codesEl);
+    startCounter(900, 11, 60, codesEl, 12);
   };
 
   window.addEventListener(`load`, () => {
