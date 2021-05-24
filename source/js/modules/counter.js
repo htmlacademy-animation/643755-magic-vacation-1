@@ -5,13 +5,15 @@ export default function startCounter(maxCount, initialCount, step, selector) {
   let myTimer = setInterval(() => {
     counter = counter + step;
 
-    requestAnimationFrame(() => {
-      selector.innerHTML = counter;
-    });
 
     if (counter >= maxCount) {
       clearInterval(myTimer);
+      counter = maxCount;
     }
+
+    requestAnimationFrame(() => {
+      selector.innerHTML = counter;
+    });
 
   }, 120);
 }
