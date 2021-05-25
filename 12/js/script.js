@@ -10362,22 +10362,25 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return startCounter; });
-function startCounter(maxCount, initialCount, step, selector) {
+function startCounter(maxCount, initialCount, step, selector, fps) {
+
   let counter = initialCount;
   selector.innerHTML = counter;
 
   let myTimer = setInterval(() => {
     counter = counter + step;
 
+    if (counter >= maxCount) {
+      clearInterval(myTimer);
+      counter = maxCount;
+    }
+
     requestAnimationFrame(() => {
       selector.innerHTML = counter;
     });
 
-    if (counter >= maxCount) {
-      clearInterval(myTimer);
-    }
+  }, 1000 / fps);
 
-  }, 120);
 }
 
 
@@ -10647,10 +10650,10 @@ __webpack_require__.r(__webpack_exports__);
 
   const runCounter = () => {
     const casesEl = document.querySelector(`.prizes__item--cases b`);
-    Object(_counter__WEBPACK_IMPORTED_MODULE_2__["default"])(7, 1, 1, casesEl);
+    Object(_counter__WEBPACK_IMPORTED_MODULE_2__["default"])(7, 1, 1, casesEl, 12);
 
     const codesEl = document.querySelector(`.prizes__item--codes b`);
-    Object(_counter__WEBPACK_IMPORTED_MODULE_2__["default"])(900, 11, 60, codesEl);
+    Object(_counter__WEBPACK_IMPORTED_MODULE_2__["default"])(900, 11, 60, codesEl, 12);
   };
 
   window.addEventListener(`load`, () => {

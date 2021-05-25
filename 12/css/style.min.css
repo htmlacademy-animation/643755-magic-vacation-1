@@ -2546,6 +2546,12 @@ img {
 }
 .prizes__item--cases b {
   min-width: 7rem;
+  transform: translateX(18px);
+}
+@media (min-width: 2000px) {
+  .prizes__item--cases b {
+    min-width: 5rem;
+  }
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .prizes__item--codes {
@@ -2576,7 +2582,13 @@ img {
   }
 }
 .prizes__item--codes b {
-  min-width: 18rem;
+  min-width: 19rem;
+}
+@media (min-width: 2000px) {
+  .prizes__item--codes b {
+    transform: translateX(25px);
+    min-width: 15rem;
+  }
 }
 
 @media (max-width: 1024px) and (orientation: portrait) {
