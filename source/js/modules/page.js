@@ -1,11 +1,20 @@
 import AccentTypographyBuild from "./text";
 import startTimer from "./timer";
+import startCounter from "./counter";
 
 export default () => {
   const runTimer = () => {
     const fiveMinutes = 60 * 5;
     const display = document.querySelector(`.game__counter`);
     startTimer(fiveMinutes, display);
+  };
+
+  const runCounter = () => {
+    const casesEl = document.querySelector(`.prizes__item--cases b`);
+    startCounter(7, 1, 1, casesEl, 12);
+
+    const codesEl = document.querySelector(`.prizes__item--codes b`);
+    startCounter(900, 11, 60, codesEl, 12);
   };
 
   window.addEventListener(`load`, () => {
@@ -51,8 +60,15 @@ export default () => {
     }, 10);
 
     if (window.location.hash === `#game`) {
+      // таймер
       runTimer();
     }
+
+    if (window.location.hash === `#prizes`) {
+      // счётик призов
+      runCounter();
+    }
+
 
     body.addEventListener(`screenChanged`, (event) => {
       // запуск анимации при смене экранов
@@ -91,6 +107,9 @@ export default () => {
           imgEls.forEach(function (imgEl) {
             imgEl.src = imgEl.src + `?` + String(Math.floor((Math.random() * 100) + 1));
           });
+
+          // счётик призов
+          runCounter();
 
           break;
 

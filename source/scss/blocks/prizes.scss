@@ -188,6 +188,15 @@
         width: 7rem;
       }
     }
+
+    & b {
+      min-width: 7rem;
+      transform: translateX(18px);
+
+      @media (min-width: $stop-scaling) {
+        min-width: 5rem;
+      }
+    }
   }
 
   &--codes {
@@ -214,6 +223,15 @@
         width: 10rem;
       }
     }
+
+    & b {
+      min-width: 19rem;
+
+      @media (min-width: $stop-scaling) {
+        transform: translateX(25px);
+        min-width: 15rem;
+      }
+    }
   }
 }
 
@@ -235,6 +253,7 @@
   margin: 5.6rem 0 0 0;
   font-size: 1.8rem;
   line-height: 1.1;
+
 
   @media (min-width: $stop-scaling) {
     margin-top: 56px;
