@@ -1,3 +1,5 @@
+import animateCalf from "./calf";
+
 export default () => {
 
   const makeAnimateTag = (path, pathLength) => {
@@ -18,6 +20,9 @@ export default () => {
   if (results.length) {
     for (let i = 0; i < showResultEls.length; i++) {
       showResultEls[i].addEventListener(`click`, function () {
+
+        //анимация моржа
+        animateCalf();
 
         // анимация слова "Победа!"
         let pathEls = document.querySelectorAll(`.js-victory path`);
