@@ -3,7 +3,7 @@ export default function animateCalf() {
   let calfImgDom = new Image();
 
   const drawCalf = () => {
-    // рисуем изображение на постере
+    // рисуем изображение на холсте
     ctx.drawImage(calfImgDom, 0, 0, 300, 300);
   };
 
@@ -13,7 +13,7 @@ export default function animateCalf() {
   };
 
 
-  // задаём ссылку для изображения постера
+  // задаём ссылку для изображения
   calfImgDom.src = `/img/module-4/win-primary-images/sea-calf-2.png`;
 
   let x = 1;
