@@ -1,40 +1,10 @@
 export default function animateCalf() {
   const ctx = document.getElementById(`canvasCalf`).getContext(`2d`);
 
-  const calfImgDom = new Image();
-  const drawCalf = () => {
-    ctx.drawImage(calfImgDom, 100, 300, 600, 600);
-  };
-  calfImgDom.onload = () => {
-    drawCalf();
-  };
-  calfImgDom.src = `/img/module-4/win-primary-images/sea-calf-2.png`;
-
-
-  const iceImgDom = new Image();
-  const drawIce = () => {
-    ctx.drawImage(iceImgDom, 150, 550, 500, 250);
-  };
-  iceImgDom.onload = () => {
-    drawIce();
-  };
-  iceImgDom.src = `/img/module-4/win-primary-images/ice.png`;
-
-
-
-  let y = 1;
-  const animateCalfImg = (progress) => {
-    y = progress * 100;
-    ctx.drawImage(iceImgDom, 150, 750 - y, 500, 250);
-    ctx.drawImage(calfImgDom, 100, 500 - y, 600, 600);
-
-  };
-
-  function animate({timing, draw, duration}) {
+  const runAnimation = ({timing, draw, duration}) => {
 
     let start = performance.now();
 
-    // eslint-disable-next-line no-shadow
     requestAnimationFrame(function animate(time) {
       // timeFraction изменяется от 0 до 1
       let timeFraction = (time - start) / duration;
@@ -58,15 +28,51 @@ export default function animateCalf() {
       }
 
     });
-  }
 
-  animate({
-    duration: 5000,
+  };
+
+
+  const iceImgDom = new Image();
+  iceImgDom.src = `/img/module-4/win-primary-images/ice.png`;
+  iceImgDom.onload = () => {
+    ctx.drawImage(iceImgDom, 150, 550, 500, 250);
+  };
+
+  const calfImgDom = new Image();
+  calfImgDom.src = `/img/module-4/win-primary-images/sea-calf-2.png`;
+  calfImgDom.onload = () => {
+    ctx.drawImage(calfImgDom, 100, 300, 600, 600);
+  };
+
+  const snow1ImgDom = new Image();
+  snow1ImgDom.src = `/img/module-4/win-primary-images/snowflake.png`;
+  snow1ImgDom.onload = () => {
+    ctx.drawImage(snow1ImgDom, 100, 350, 200, 200);
+  };
+
+
+  let y = 1;
+  const animateCalfImg = (progress) => {
+    y = progress * 100;
+    ctx.drawImage(iceImgDom, 150, 750 - y, 500, 250);
+    ctx.drawImage(calfImgDom, 100, 500 - y, 600, 600);
+  };
+
+  let y2 = 1;
+  const animateSnow1 = (progress) => {
+    y2 = progress * 100;
+    ctx.drawImage(snow1ImgDom, 100, 550 - y2, 200, 200);
+  };
+
+
+  runAnimation({
+    duration: 2000,
     timing(timeFraction) {
       return timeFraction * 4;
     },
     draw(progress) {
       animateCalfImg(progress);
+      animateSnow1(progress);
     }
   });
 
