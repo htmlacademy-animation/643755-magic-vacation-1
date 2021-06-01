@@ -35,6 +35,14 @@ export default function animateCalf() {
     return elImgDom;
   };
 
+  const animateIt = ({elFunction, started, duration, delay}) => {
+    elFunction();
+    let timePassed = Date.now() - started;
+    if (timePassed < duration) {
+      requestAnimationFrame(() => animateIt({elFunction, started, duration, delay}));
+    }
+  };
+
   // морж
   const calf = {
     dx: 130,
@@ -65,22 +73,11 @@ export default function animateCalf() {
   };
 
   const iceImgDom = createImgElement(ice);
-  const animateIceImg = (start) => {
-
+  const iceAnimation = () => {
     ice.dy = (ice.dy - 10);
     drawObject({el: iceImgDom, dx: ice.dx, dy: ice.dy, dw: ice.dw, dh: ice.dh, isVisible: ice.isVisible});
-    // if (ice.dy > 400) {
-    //   requestAnimationFrame(animateIceImg);
-    // }
-
-    let timePassed = Date.now() - start;
-
-    console.log(timePassed);
-    if (timePassed < 1000) {
-      requestAnimationFrame(() => animateIceImg(start));
-    }
-
   };
+
 
   // снег
   const snow1 = {
@@ -103,17 +100,9 @@ export default function animateCalf() {
   };
 
 
-  let startTime = Date.now();
-  // console.log(startTime);
-  // setTimeout(() => {
-  //   console.log(Date.now());
-  //   console.log(Date.now() - startTime);
-  // }, 3000);
-
-
   tick();
 
-  animateIceImg(startTime);
+  animateIt({elFunction: iceAnimation, started: Date.now(), duration: 1000, delay: 2000});
   animateCalfImg();
   setTimeout(animateSnow1Img, 1000);
 
