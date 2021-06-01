@@ -67,7 +67,6 @@ export default function animateCalf() {
   const iceImgDom = createImgElement(ice);
   const animateIceImg = (start) => {
 
-
     ice.dy = (ice.dy - 10);
     drawObject({el: iceImgDom, dx: ice.dx, dy: ice.dy, dw: ice.dw, dh: ice.dh, isVisible: ice.isVisible});
     // if (ice.dy > 400) {
@@ -75,11 +74,11 @@ export default function animateCalf() {
     // }
 
     let timePassed = Date.now() - start;
-    console.log(timePassed / 1000);
 
-    // if (timePassed < 500) {
-       requestAnimationFrame(animateIceImg);
-    // }
+    console.log(timePassed);
+    if (timePassed < 1000) {
+      requestAnimationFrame(() => animateIceImg(start));
+    }
 
   };
 
@@ -105,6 +104,11 @@ export default function animateCalf() {
 
 
   let startTime = Date.now();
+  // console.log(startTime);
+  // setTimeout(() => {
+  //   console.log(Date.now());
+  //   console.log(Date.now() - startTime);
+  // }, 3000);
 
 
   tick();
