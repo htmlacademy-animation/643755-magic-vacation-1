@@ -10,6 +10,7 @@ export default function animateCalf() {
     ctx.save();
     // рисуем сцену
 
+
     drawObject({el: iceImgDom, dx: ice.dx, dy: ice.dy, dw: ice.dw, dh: ice.dh, isVisible: ice.isVisible});
     drawObject({el: calfImgDom, dx: calf.dx, dy: calf.dy, dw: calf.dw, dh: calf.dh, isVisible: calf.isVisible});
     drawObject({el: snow1ImgDom, dx: snow1.dx, dy: snow1.dy, dw: snow1.dw, dh: snow1.dh, isVisible: snow1.isVisible});
@@ -64,12 +65,22 @@ export default function animateCalf() {
   };
 
   const iceImgDom = createImgElement(ice);
-  const animateIceImg = () => {
+  const animateIceImg = (start) => {
+
+
     ice.dy = (ice.dy - 10);
     drawObject({el: iceImgDom, dx: ice.dx, dy: ice.dy, dw: ice.dw, dh: ice.dh, isVisible: ice.isVisible});
-    if (ice.dy > 400) {
-      requestAnimationFrame(animateIceImg);
-    }
+    // if (ice.dy > 400) {
+    //   requestAnimationFrame(animateIceImg);
+    // }
+
+    let timePassed = Date.now() - start;
+    console.log(timePassed / 1000);
+
+    // if (timePassed < 500) {
+       requestAnimationFrame(animateIceImg);
+    // }
+
   };
 
   // снег
@@ -93,8 +104,12 @@ export default function animateCalf() {
   };
 
 
+  let startTime = Date.now();
+
+
   tick();
-  animateIceImg();
+
+  animateIceImg(startTime);
   animateCalfImg();
   setTimeout(animateSnow1Img, 1000);
 
