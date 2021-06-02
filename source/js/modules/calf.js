@@ -108,7 +108,7 @@ export default function animateCalf() {
   tick();
 
   animateIt({elFunction: iceAnimation, started: Date.now(), duration: 1000, delay: 2000});
-  setTimeout( () => {
+  setTimeout(() => {
     animateIt({elFunction: iceAnimation2, started: Date.now(), duration: 1000, delay: 2000});
   }, 1000);
   animateCalfImg();
