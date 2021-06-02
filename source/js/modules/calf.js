@@ -78,6 +78,11 @@ export default function animateCalf() {
     drawObject({el: iceImgDom, dx: ice.dx, dy: ice.dy, dw: ice.dw, dh: ice.dh, isVisible: ice.isVisible});
   };
 
+  const iceAnimation2 = () => {
+    ice.dy = (ice.dy + 10);
+    drawObject({el: iceImgDom, dx: ice.dx, dy: ice.dy, dw: ice.dw, dh: ice.dh, isVisible: ice.isVisible});
+  };
+
 
   // снег
   const snow1 = {
@@ -103,6 +108,9 @@ export default function animateCalf() {
   tick();
 
   animateIt({elFunction: iceAnimation, started: Date.now(), duration: 1000, delay: 2000});
+  setTimeout( () => {
+    animateIt({elFunction: iceAnimation2, started: Date.now(), duration: 1000, delay: 2000});
+  }, 1000);
   animateCalfImg();
   setTimeout(animateSnow1Img, 1000);
 
