@@ -212,12 +212,12 @@ export default function animateCalf() {
   // дерево
   setTimeout(() => {
     animateIt({elFunction: animateTree, started: Date.now(), duration: 600});
-  }, 600);
+  }, 900);
 
   // дерево2
   setTimeout(() => {
     animateIt({elFunction: animateTree2, started: Date.now(), duration: 600});
-  }, 600);
+  }, 900);
 
 
   // снег
