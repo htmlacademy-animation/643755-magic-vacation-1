@@ -34,8 +34,10 @@ export default function animateCalf() {
     window.requestAnimationFrame(tick);
   };
 
+
   const drawObject = ({el, dx, dy, dw, dh, isVisible}) => {
     ctx.globalAlpha = isVisible;
+
     ctx.drawImage(el, dx, dy, dw, dh);
   };
 
@@ -101,10 +103,30 @@ export default function animateCalf() {
   };
 
   const snowImgDom1 = createImgElement(snow1);
-  const animateSnowImg1 = () => {
+  const animateSnowImg1Up = () => {
     snow1.isVisible = 1;
-    snow1.dy = (snow1.dy - 1);
+    snow1.dy = snow1.dy - 1;
+
+    if (snow1.dy < 200) {
+      animateSnowImg1Down();
+      return;
+    }
+
     drawObject({el: snowImgDom1, dx: snow1.dx, dy: snow1.dy, dw: snow1.dw, dh: snow1.dh, isVisible: snow1.isVisible});
+    requestAnimationFrame(animateSnowImg1Up);
+  };
+
+  const animateSnowImg1Down = () => {
+    snow1.isVisible = 1;
+    snow1.dy = snow1.dy + 1;
+
+    if (snow1.dy > 250) {
+      animateSnowImg1Up();
+      return;
+    }
+
+    drawObject({el: snowImgDom1, dx: snow1.dx, dy: snow1.dy, dw: snow1.dw, dh: snow1.dh, isVisible: snow1.isVisible});
+    requestAnimationFrame(animateSnowImg1Down);
   };
 
 
@@ -119,10 +141,30 @@ export default function animateCalf() {
   };
 
   const snowImgDom2 = createImgElement(snow2);
-  const animateSnowImg2 = () => {
+  const animateSnowImg2Up = () => {
     snow2.isVisible = 1;
-    snow2.dy = (snow2.dy - 1);
+    snow2.dy = snow2.dy - 1;
+
+    if (snow2.dy < 200) {
+      animateSnowImg2Down();
+      return;
+    }
+
     drawObject({el: snowImgDom2, dx: snow2.dx, dy: snow2.dy, dw: snow2.dw, dh: snow2.dh, isVisible: snow2.isVisible});
+    requestAnimationFrame(animateSnowImg2Up);
+  };
+
+  const animateSnowImg2Down = () => {
+    snow2.isVisible = 1;
+    snow2.dy = snow2.dy + 1;
+
+    if (snow2.dy > 250) {
+      animateSnowImg2Up();
+      return;
+    }
+
+    drawObject({el: snowImgDom2, dx: snow2.dx, dy: snow2.dy, dw: snow2.dw, dh: snow2.dh, isVisible: snow2.isVisible});
+    requestAnimationFrame(animateSnowImg2Down);
   };
 
 
@@ -133,14 +175,17 @@ export default function animateCalf() {
     dw: 250,
     dh: 250,
     src: `/img/module-4/win-primary-images/airplane.png`,
-    isVisible: 0
+    isVisible: 0,
+    transforms: {
+      scale: 0.5
+    }
   };
 
   const planeImgDom = createImgElement(plane);
   const animatePlane = () => {
     plane.isVisible = 1;
     plane.dx = (plane.dx + 10);
-    drawObject({el: planeImgDom, dx: plane.dx, dy: plane.dy, dw: plane.dw, dh: plane.dh, isVisible: plane.isVisible});
+    drawObject({el: planeImgDom, dx: plane.dx, dy: plane.dy, dw: plane.dw, dh: plane.dh, isVisible: plane.isVisible, transforms: plane.transforms});
   };
 
   // след
@@ -222,8 +267,8 @@ export default function animateCalf() {
 
   // снег
   setTimeout(() => {
-    animateIt({elFunction: animateSnowImg1, started: Date.now(), duration: 500});
-    animateIt({elFunction: animateSnowImg2, started: Date.now(), duration: 500});
+    animateSnowImg1Up();
+    animateSnowImg2Up();
   }, 1200);
 
 
