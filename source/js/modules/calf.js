@@ -59,7 +59,7 @@ export default function animateCalf() {
   animate({
     duration: 1000,
     timing(timeFraction) {
-      return timeFraction;
+      return timeFraction ;
     },
     action(progress) {
       calf.dy = calf.dy - progress * 10;
@@ -69,7 +69,7 @@ export default function animateCalf() {
 
   setTimeout(() => {
     animate({
-      duration: 1000,
+      duration: 500,
       timing(timeFraction) {
         return timeFraction;
       },
