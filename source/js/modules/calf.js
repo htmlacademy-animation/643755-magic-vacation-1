@@ -1,8 +1,22 @@
 export default function animateCalf() {
+  function easeOutElastic(x) {
+    const c4 = (2 * Math.PI) / 3;
+
+    if (x === 0) {
+      return 0;
+    } else if (x === 1) {
+      return 1;
+    } else {
+
+      //return Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1;
+      return Math.pow(2, -11 * x) * Math.sin((x * 8 - 0.75) * c4) + 1;
+    }
+  }
+
   // морж
   const calf = {
     dx: 130,
-    dy: 550,
+    dy: 600,
     dw: 550,
     dh: 550,
     src: `/img/module-4/win-primary-images/sea-calf-2.png`,
@@ -57,28 +71,30 @@ export default function animateCalf() {
   draw();
 
   animate({
-    duration: 1000,
+    duration: 2000,
     timing(timeFraction) {
-      return timeFraction ;
+      return easeOutElastic(timeFraction);
     },
     action(progress) {
-      calf.dy = calf.dy - progress * 10;
+
+      calf.dy = calf.dy - (1 - progress) * 20;
+
     }
   });
 
 
-  setTimeout(() => {
-    animate({
-      duration: 500,
-      timing(timeFraction) {
-        return timeFraction;
-      },
-      action(progress) {
-        calf.dx = calf.dx - progress * 10;
-      }
-    });
-
-  }, 1000);
+  // setTimeout(() => {
+  //   animate({
+  //     duration: 500,
+  //     timing(timeFraction) {
+  //       return timeFraction;
+  //     },
+  //     action(progress) {
+  //       calf.dx = calf.dx - progress * 10;
+  //     }
+  //   });
+  //
+  // }, 1000);
 
 
 }
